@@ -23,6 +23,7 @@ namespace Uppdrag4_laskbacken
         public double GetPrice() //Metod som returnerar price. Behövs eftersom price är satt till private
         {
             return price;
+
         }
         public string GetName() //Metod som returnerar name. Behövs eftersom name är satt till private
         {

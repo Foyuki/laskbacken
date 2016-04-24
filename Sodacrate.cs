@@ -48,11 +48,12 @@ namespace Uppdrag4_laskbacken
                         FindSoda();
                         break;
                     case 5:
-                        //Console.WriteLine("Sorterar flaska utifrån namnets längd");
-                        //SortSodasName();
+                        Console.WriteLine("Sorterar flaska utifrån namnets längd");
+                        SortSodasName();
                         break;
                     case 6:
-                        Console.WriteLine("Sorterar flaska utifrån pris"); //SortSodasPrice();
+                        Console.WriteLine("Sorterar flaska utifrån pris");
+                        SortSodasPrice();
                         break;
                     case 0:
                         Console.WriteLine("Avsluta programmet");
@@ -169,71 +170,63 @@ namespace Uppdrag4_laskbacken
         }
 
 
-        //METOD - INTE KLAR! SortSodasNames - metod som jämför längd på ord i en string.
+        //Metod som sorterar flaskorna i backen baserat på namnets längd
         public void SortSodasName()
         {
-            //    foreach (var temp in sodas)
-            //    {
-            //        if (temp != null)
-            //            Console.WriteLine("Namnet på flaskan innehåller {0} bokstäver.", temp.GetName().Length); //Testar att GetName() funkar
-            //    }
-            //}
-            int max = sodas.Length - 1;
-
-            //Den yttre loopen går igenom hela listan
-            for (int i = 0; i < max; i++)
+            for (int a = 0; a < sodas.Length; a++)
             {
-                //Den inre går igenom element för element
-                int nrLeft = max - i; //För att se hur många som redan gåtts igenom
+                    int max = sodas.Length - 1;
 
-                for (int j = 0; j > nrLeft; j++)
-                {
-                    if (sodas[j].GetName().Length > sodas[j + 1].GetName().Length) //Jämför elementen
+                    //Den yttre loopen går igenom hela listan
+                    for (int i = 0; i < max; i++)
                     {
-                        //Byt plats
-                        string temp = sodas[j].GetName();
-                        sodas[j] = sodas[j + 1];
-                        sodas[j + 1] = temp; ////Den här raden får felmeddelandet Cannot implicitly convert type 'string' to 'Uppdrag4_laskbacken.Soda'
+                        int nrLeft = max - i; //För att se hur många som redan gåtts igenom
+
+                        for (int j = 0; j < nrLeft; j++) //Den inre loopen går igenom element för element
+                        {
+                            if (sodas[j].GetName().Length > sodas[j + 1].GetName().Length) //Jämför elementens variabel name
+                            {
+                                //Byt plats
+                                var temp = sodas[j];
+                                sodas[j] = sodas[j + 1];
+                                sodas[j + 1] = temp;
+                            }
+                        }
                     }
-                }
             }
+            
             //Skriv ut listan
-            for (int i = 0; i < sodas.Length; i++)
-                Console.WriteLine(sodas[i]);
+                for (int i = 0; i < sodas.Length; i++)
+                {
+                        Console.WriteLine("[{0,2}]: {1} innehåller {2} bokstäver.", (i + 1), sodas[i].GetName(), sodas[i].GetName().Length);
+                }
         }
 
-        //METOD - INTE KLAR SortSodasPrice
+        //Metod som sorterar flaskorna i backen baserat på pris
         public void SortSodasPrice()
         {
-            //    foreach (var temp in sodas)
-            //    {
-            //        if (temp != null)
-            //            Console.WriteLine("Priset på flaskan är {0} kr.", temp.GetPrice());
-            //    }
-            //}
-
             int max = sodas.Length - 1;
 
             //Den yttre loopen går igenom hela listan
             for (int i = 0; i < max; i++)
             {
-                //Den inre går igenom element för element
-                int nrLeft = max - i; //För att se hur många som redan gåtts igenom
+                    //Den inre går igenom element för element
+                    int nrLeft = max - i; //För att se hur många som redan gåtts igenom
 
-                for (int j = 0; j > nrLeft; j++)
-                {
-                    if (sodas[j].GetPrice() > sodas[j + 1].GetPrice()) //Jämför elementen
+                    for (int j = 0; j < nrLeft; j++)
                     {
-                        //Byt plats
-                        double temp = sodas[j].GetPrice();
-                        sodas[j] = sodas[j + 1];
-                        sodas[j + 1] = temp; //Den här raden får felmeddelandet Cannot implicitly convert type 'double' to 'Uppdrag4_laskbacken.Soda'
+                            if (sodas[j].GetPrice() > sodas[j + 1].GetPrice()) //Jämför elementens variabel price
+                            {
+                                //Byt plats
+                                var temp = sodas[j];
+                                sodas[j] = sodas[j + 1];
+                                sodas[j + 1] = temp;
+                            }
                     }
-                }
             }
                     //Skriv ut listan
                     for (int i = 0; i<sodas.Length; i++)
-                        Console.WriteLine(sodas[i]);
-                }
-            }
-    }
+                Console.WriteLine("{0}-flaskan kostar {1} kr.", sodas[i].GetName(), sodas[i].GetPrice());
+         }
+      }
+    } 
