@@ -193,7 +193,7 @@ namespace Uppdrag4_laskbacken
                         //Byt plats
                         string temp = sodas[j].GetName();
                         sodas[j] = sodas[j + 1];
-                        sodas[j + 1] = temp;
+                        sodas[j + 1] = temp; ////Den här raden får felmeddelandet Cannot implicitly convert type 'string' to 'Uppdrag4_laskbacken.Soda'
                     }
                 }
             }
@@ -227,7 +227,7 @@ namespace Uppdrag4_laskbacken
                         //Byt plats
                         double temp = sodas[j].GetPrice();
                         sodas[j] = sodas[j + 1];
-                        sodas[j + 1] = temp;
+                        sodas[j + 1] = temp; //Den här raden får felmeddelandet Cannot implicitly convert type 'double' to 'Uppdrag4_laskbacken.Soda'
                     }
                 }
             }
